@@ -1623,8 +1623,6 @@ C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\build-gz\miweP+O0.gz
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\build-gz\gBRmEhI9.gz
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\build-gz\AOJ7Km0N.gz
-C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\build-gz\0EjUQiQ1.gz
-C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\build-gz\NLOLXkW3.gz
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\build-gz\3uhGrLkB.gz
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\blazor.boot.json
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\staticwebassets\msbuild.techstack.team.builder.blazor.web.Microsoft.AspNetCore.StaticWebAssets.props
@@ -1640,3 +1638,5 @@ C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\refint\techstack.team.builder.blazor.web.dll
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\techstack.team.builder.blazor.web.pdb
 C:\Users\bensu\source\repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\ref\techstack.team.builder.blazor.web.dll
+C:\Users\bensu\Source\Repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\build-gz\5l655+5M.gz
+C:\Users\bensu\Source\Repos\techstack.teambuilder.web\src\techstack.team.builder.blazor.web\techstack.team.builder.blazor.web\obj\Debug\net6.0\build-gz\0CcJGtct.gz
