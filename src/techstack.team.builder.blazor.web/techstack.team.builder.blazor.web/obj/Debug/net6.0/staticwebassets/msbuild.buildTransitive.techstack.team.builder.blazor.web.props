@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\techstack.team.builder.blazor.web.props" />
+</Project>
