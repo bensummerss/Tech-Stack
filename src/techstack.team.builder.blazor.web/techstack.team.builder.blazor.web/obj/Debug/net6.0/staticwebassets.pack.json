@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
     },
     {
+      "Id": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
       "Id": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -19,10 +23,6 @@
     {
       "Id": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\logo-png.png",
       "PackagePath": "staticwebassets\\logo-png.png"
-    },
-    {
-      "Id": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\sample-data\\weather.json",
-      "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.techstack.team.builder.blazor.web.props",

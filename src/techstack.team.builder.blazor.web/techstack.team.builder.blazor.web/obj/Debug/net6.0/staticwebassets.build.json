@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tHJIryLWlhtLZywwmhmuJGIwHuaWQZGgQGXdUuLYipU=",
+  "Hash": "Vt4QD7VmqiBJPnLybUQYlDXAon3w2Uto1sNx7LSS7tc=",
   "Source": "techstack.team.builder.blazor.web",
   "BasePath": "/",
   "Mode": "Root",
@@ -6902,6 +6902,23 @@
       "OriginalItemSpec": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.FileVersionInfo.dll"
     },
     {
+      "Identity": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\app.css",
+      "SourceId": "techstack.team.builder.blazor.web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.css"
+    },
+    {
       "Identity": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\favicon.ico",
       "SourceId": "techstack.team.builder.blazor.web",
       "SourceType": "Discovered",
@@ -6951,23 +6968,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\logo-png.png"
-    },
-    {
-      "Identity": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\sample-data\\weather.json",
-      "SourceId": "techstack.team.builder.blazor.web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "sample-data/weather.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sample-data\\weather.json"
     }
   ]
 }

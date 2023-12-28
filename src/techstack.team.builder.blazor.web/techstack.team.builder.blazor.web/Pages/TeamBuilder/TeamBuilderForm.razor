@@ -1,70 +1,56 @@
 ﻿@using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
 
-<div class="title-button-row">
-    <h3>Team request</h3>
-    <div class="icon-only-row">
-        <MudIconButton OnClick="AddFormRow" 
-            DisableElevation="true" 
-            Variant="Variant.Filled" 
-            Size="Size.Small" 
-            Color="Color.Primary" 
-            Icon="@Icons.Material.Filled.Add" />
-    </div>
-</div>
-
-<MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
-    <MudGrid>
-        @foreach (var (fragment, index) in dynamicComponents.Select((f, i) => (f, i)))
-        {
-            <div class="title-button-row">
-                <MudIconButton @onclick="() => RemoveFormRow(index)"
+<MudGrid>
+    <MudItem xs="12">
+        <div class="title-button-row-0m">
+            <h3>Team request</h3>
+            <div class="icon-only-row">
+                <MudIconButton OnClick="AddFormRow"
                                DisableElevation="true"
-                               Variant="Variant.Text"
+                               Variant="Variant.Filled"
                                Size="Size.Small"
-                               Color="Color.Error"
-                               Icon="@Icons.Material.Filled.RemoveCircleOutline"
-                               Style="margin-left: 5px;" />
-                @fragment
+                               Color="Color.Primary"
+                               Icon="@Icons.Material.Filled.Add" />
             </div>
-        }
+        </div>
+    </MudItem>
+    @if (dynamicComponents.Count > 0)
+    {
         <MudItem xs="12">
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" DisableElevation="true" OnClick="@(()=>form.Validate())"><p>Submit</p></MudButton>
+            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                <MudGrid>
+                    @foreach (var (rowFragment, index) in dynamicComponents.Select((f, i) => (f, i)))
+                    {
+                        <div class="rendered-row">
+                            <MudIconButton @onclick="() => RemoveFormRow(index)"
+                                           DisableElevation="true"
+                                           Variant="Variant.Text"
+                                           Size="Size.Small"
+                                           Color="Color.Error"
+                                           Icon="@Icons.Material.Filled.RemoveCircleOutline"
+                                           Style="margin-left: 5px;" />
+                            @rowFragment
+                        </div>
+                    }
+                </MudGrid>
+            </MudForm>
         </MudItem>
-    </MudGrid>
-</MudForm>
+        <MudItem xs="12">
+            <div class="button-row">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" DisableElevation="true" OnClick="@(() => form.Validate())">
+                    <MudText Typo="Typo.body2">Create post</MudText>
+                </MudButton>
+                <MudButton Variant="Variant.Outlined" Color="Color.Primary" DisableElevation="true" OnClick="@(() => form.Reset())">
+                    <MudText Typo="Typo.body2">Clear</MudText>
+                </MudButton>
+            </div>
+        </MudItem>
+    }
+</MudGrid>
 
 @code {
-    bool success;
-    string[] errors = { };
-    MudTextField<string> pwField1;
-    MudForm form;
-
-    private IEnumerable<string> PasswordStrength(string pw)
-    {
-        if (string.IsNullOrWhiteSpace(pw))
-        {
-            yield return "Password is required!";
-            yield break;
-        }
-        if (pw.Length < 8)
-            yield return "Password must be at least of length 8";
-        if (!Regex.IsMatch(pw, @"[A-Z]"))
-            yield return "Password must contain at least one capital letter";
-        if (!Regex.IsMatch(pw, @"[a-z]"))
-            yield return "Password must contain at least one lowercase letter";
-        if (!Regex.IsMatch(pw, @"[0-9]"))
-            yield return "Password must contain at least one digit";
-    }
-
-    private string PasswordMatch(string arg)
-    {
-        if (pwField1.Value != arg)
-            return "Passwords don't match";
-        return null;
-    }
-
-    //private RenderFragment dynamicComponent;
+    private List<string> dynamicComponentsContent = new List<string>();
 
     private List<RenderFragment> dynamicComponents = new List<RenderFragment>();
 
