@@ -3,14 +3,30 @@
 
 <div class="title-button-row">
     <h3>Team request</h3>
-    <MudIconButton OnClick="AddFormRow" DisableElevation="true" Variant="Variant.Filled" Size="Size.Small" Color="Color.Primary" Icon="@Icons.Material.Filled.Add"></MudIconButton>
+    <div class="icon-only-row">
+        <MudIconButton OnClick="AddFormRow" 
+            DisableElevation="true" 
+            Variant="Variant.Filled" 
+            Size="Size.Small" 
+            Color="Color.Primary" 
+            Icon="@Icons.Material.Filled.Add" />
+    </div>
 </div>
 
 <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
     <MudGrid>
-        @foreach (var fragment in dynamicComponents)
+        @foreach (var (fragment, index) in dynamicComponents.Select((f, i) => (f, i)))
         {
-            @fragment
+            <div class="title-button-row">
+                <MudIconButton @onclick="() => RemoveFormRow(index)"
+                               DisableElevation="true"
+                               Variant="Variant.Text"
+                               Size="Size.Small"
+                               Color="Color.Error"
+                               Icon="@Icons.Material.Filled.RemoveCircleOutline"
+                               Style="margin-left: 5px;" />
+                @fragment
+            </div>
         }
         <MudItem xs="12">
             <MudButton Variant="Variant.Filled" Color="Color.Primary" DisableElevation="true" OnClick="@(()=>form.Validate())"><p>Submit</p></MudButton>
@@ -59,5 +75,10 @@
             builder.OpenComponent(0, typeof(TeamBuilderFormRow));
             builder.CloseComponent();
         });
+    }
+
+    private void RemoveFormRow(int index)
+    {
+        dynamicComponents.RemoveAt(index);
     }
 }
