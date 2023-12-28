@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bensu\\source\\repos\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj": {}
+    "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bensu\\source\\repos\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj": {
+    "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bensu\\source\\repos\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj",
+        "projectUniqueName": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj",
         "projectName": "techstack.team.builder.blazor.web",
-        "projectPath": "C:\\Users\\bensu\\source\\repos\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj",
+        "projectPath": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj",
         "packagesPath": "C:\\Users\\bensu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bensu\\source\\repos\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\obj\\",
+        "outputPath": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bensu\\AppData\\Roaming\\NuGet\\NuGet.Config",

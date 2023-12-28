@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xdZV/qn+hF78VwivlO5uDPYmlWvcGQOUMzIty2nGqqtbM9ohZiblj443Ov6IxaBM3FWOgu9WQpZ1MqCAwcYIYA==",
+  "dgSpecHash": "Z8qQO/ea8WSqtvSZAGrtzCzVOLVQ5oO1VISf7ttDqaWuxC7KDUDZc92pQ7eoXXl4imkHlSFh85Zlw48KHwmfow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bensu\\source\\repos\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj",
+  "projectFilePath": "C:\\Users\\bensu\\Source\\Repos\\techstack.teambuilder.web\\src\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web\\techstack.team.builder.blazor.web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bensu\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.7\\microsoft.aspnetcore.authorization.6.0.7.nupkg.sha512",
     "C:\\Users\\bensu\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.7\\microsoft.aspnetcore.components.6.0.7.nupkg.sha512",
