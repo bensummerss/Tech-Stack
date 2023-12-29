@@ -2,6 +2,9 @@
 @using System.ComponentModel.DataAnnotations
 @using Microsoft.AspNetCore.Components.Rendering;
 @using techstack.team.builder.blazor.web.Models;
+@using techstack.team.builder.blazor.web.Services;
+
+@inject ISelectionService SelectionService
 
 <MudGrid>
     <MudItem xs="12">
@@ -79,11 +82,19 @@
     private void RemoveAllFormRows()
     {
         formRow.Clear();
+        SelectionService.SelectedSkillLevel = null;
+        SelectionService.SelectedRole = null;
+        SelectionService.SelectedSkillset = null;
+        SelectionService.SelectedQuantity = 0;
         StateHasChanged();
     }
 
     private void RemoveFormRow(int index)
     {
+        SelectionService.SelectedSkillLevel = null;
+        SelectionService.SelectedRole = null;
+        SelectionService.SelectedSkillset = null;
+        SelectionService.SelectedQuantity = 0;
         formRef.Reset();
         formRow.RemoveAt(index);
         StateHasChanged();
