@@ -1,112 +1,95 @@
 ﻿@using techstack.team.builder.blazor.web.Models;
 
-<MudItem xs="3">
-    <MudSelect Clearable="true" Dense="true" T="Role" Label="Role" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
-        <MudSelectItem Value="@(new Role("Software Engineer"))" />
-        <MudSelectItem Value="@(new Role("UX Designer"))" />
-        <MudSelectItem Value="@(new Role("QA Engineer"))" />
-        <MudSelectItem Value="@(new Role("Business Analyst"))" />
-        <MudSelectItem Value="@(new Role("Delivery Manager"))" />
-        <MudSelectItem Value="@(new Role("Product Manager"))" />
-</MudSelect>
-</MudItem>
-<MudItem xs="3">
-<MudSelect MultiSelection="true" Clearable="true" Dense="true" T="Skillset" Label="Skillset" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
-    <MudSelectItem Value="@(new Skillset("AngularJS"))" />
-    <MudSelectItem Value="@(new Skillset("React development"))" />
-    <MudSelectItem Value="@(new Skillset("C#"))" />
-    <MudSelectItem Value="@(new Skillset("JS"))" />
-    <MudSelectItem Value="@(new Skillset("Typescript"))" />
-    <MudSelectItem Value="@(new Skillset("AWS"))" />
-    <MudSelectItem Value="@(new Skillset("Azure"))" />
-    <MudSelectItem Value="@(new Skillset("C++"))" />
-    <MudSelectItem Value="@(new Skillset("RXJS"))" />
-</MudSelect>
-</MudItem>
-<MudItem xs="3">
-<MudSelect Clearable="true" Dense="true" T="SkillLevel" Label="Skill level" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
-    <MudSelectItem Value="@(new SkillLevel("Executive"))" />
-    <MudSelectItem Value="@(new SkillLevel("Lead"))" />
-    <MudSelectItem Value="@(new SkillLevel("Senior"))" />
-    <MudSelectItem Value="@(new SkillLevel("Mid-level"))" />
-    <MudSelectItem Value="@(new SkillLevel("Graduate"))" />
-    <MudSelectItem Value="@(new SkillLevel("Apprentice"))" />
-    <MudSelectItem Value="@(new SkillLevel("Intern"))" />
-</MudSelect>
-</MudItem>
-<MudItem xs="3">
-<MudSelect Clearable="true" Dense="true" T="double" Label="Quantity" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
-    <MudSelectItem T="double" Value="1" />
-    <MudSelectItem T="double" Value="2" />
-    <MudSelectItem T="double" Value="3" />
-    <MudSelectItem T="double" Value="4" />
-    <MudSelectItem T="double" Value="5" />
-    <MudSelectItem T="double" Value="6" />
-    <MudSelectItem T="double" Value="7" />
-    <MudSelectItem T="double" Value="8" />
-    <MudSelectItem T="double" Value="9" />
-</MudSelect>
-</MudItem>
+<MudGrid>
+    <MudItem xs="3">
+        <MudAutocomplete T="string"
+                         SearchFunc="@Search2"
+                         ResetValueOnEmptyText="@resetValueOnEmptyText"
+                         Label="Role"
+                         Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter"
+                         Clearable="true"
+                         Dense="true" />
+    </MudItem>
+    <MudItem xs="3">
+        <MudAutocomplete 
+            T="string"
+            SearchFunc="@Search1"
+            ResetValueOnEmptyText="@resetValueOnEmptyText" 
+            Label="Skillset" 
+            Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter"
+            Clearable="true"
+            Dense="true" />
+    </MudItem>
+    <MudItem xs="3">
+        <MudSelect Clearable="true" Dense="true" T="string" Label="Skill level" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+            @foreach (var skillLevel in this.skillLevels)
+            {
+                <MudSelectItem T="string" Value="@skillLevel">@skillLevel</MudSelectItem>
+            }
+        </MudSelect>
+    </MudItem>
+    <MudItem xs="3">
+        <MudSelect Clearable="true" Dense="true" T="int" Label="Quantity" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+            @foreach (var quantityRole in this.quantityRoles)
+            {
+                <MudSelectItem T="int" Value="@quantityRole">@quantityRole</MudSelectItem>
+            }
+        </MudSelect>
+    </MudItem>
+</MudGrid>
 
 
 @code {
-    public class Role
+    private bool resetValueOnEmptyText;
+
+    private async Task<IEnumerable<string>> Search1(string value)
     {
-        public Role(string name)
-        {
-            Name = name;
-        }
+        await Task.Delay(5);
 
-        public readonly string Name;
-
-        public override bool Equals(object o)
-        {
-            var other = o as Role;
-            return other?.Name == Name;
-        }
-
-        public override int GetHashCode() => Name?.GetHashCode() ?? 0;
-
-        public override string ToString() => Name;
+        if (string.IsNullOrEmpty(value))
+            return this.skillsets;
+        return this.skillsets.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
-    public class Skillset
+    private async Task<IEnumerable<string>> Search2(string value)
     {
-        public Skillset(string name)
-        {
-            Name = name;
-        }
+        await Task.Delay(5);
 
-        public readonly string Name;
-
-        public override bool Equals(object o)
-        {
-            var other = o as Skillset;
-            return other?.Name == Name;
-        }
-
-        public override int GetHashCode() => Name?.GetHashCode() ?? 0;
-
-        public override string ToString() => Name;
+        if (string.IsNullOrEmpty(value))
+            return this.roles;
+        return this.roles.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
-    public class SkillLevel
+    protected override void OnInitialized()
     {
-        public SkillLevel(string name)
-        {
-            Name = name;
-        }
-
-        public readonly string Name;
-
-        public override bool Equals(object o)
-        {
-            var other = o as SkillLevel;
-            return other?.Name == Name;
-        }
-
-        public override int GetHashCode() => Name?.GetHashCode() ?? 0;
-
-        public override string ToString() => Name;
+        base.OnInitialized();
     }
+
+    private string[] skillsets =
+       {
+        "Angular", "Angular.js", "Apache", "ASP.NET", "Azure", "AWS", "ASP.NET MVC", "Blazor", "C#", "C++",
+        "CSS", "HTML", "Java", "Javascript", "Machine learning", "Python",
+        "ReactJS", "RXJS", "Ruby",
+        "Ruby on rails", "SASS", "Svelte", "Typescript",
+    };
+
+    private string[] roles =
+    {
+        "Software Engineer", "Front-End Software Engineer", "Back-End Software Engineer", "Mobile Developer", "Infrastructure Engineer", "Platform Engineer", "Web Developer", "Full Stack Engineer", "Business Analyst", "QA Engineer",
+        "Delviery Manager", "Product Manager", "Product Owner", "Product Designer", "UX designer", "UX/UI Designer",
+        "UX Researcher", "UI Developer", "UI Designer",
+        "Project Manager", "Site Reliability Engineer", "Data Engineer", "Data Analyst",
+        "Database Admin", "Release Manager", "Operations Management", "Solution Architect"
+    };
+
+    private string[] skillLevels =
+    {
+        "Executive", "Director", "Lead", "Senior", "Graduate", "Apprentice", "Intern",
+    };
+
+    private int[] quantityRoles =
+    {
+        1, 2, 3, 4, 5, 6,7,8,9
+    };
+
 }
