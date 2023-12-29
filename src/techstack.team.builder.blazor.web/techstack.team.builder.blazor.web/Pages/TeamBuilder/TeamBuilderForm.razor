@@ -20,7 +20,6 @@
     {
         <MudItem xs="12">
             <EditForm Model="@form" OnValidSubmit="OnValidSubmit">
-                <MudGrid>
                     @foreach (var (row, index) in formRow.Select((f, i) => (f, i)))
                     {
                         <div class="rendered-row">
@@ -29,12 +28,10 @@
                                             Variant="Variant.Text"
                                             Size="Size.Small"
                                             Color="Color.Error"
-                                            Icon="@Icons.Material.Filled.RemoveCircleOutline"
-                                            Style="margin-left: 5px;" />
+                                            Icon="@Icons.Material.Filled.RemoveCircleOutline" />
                             @row
                         </div>
                     }
-                </MudGrid>
             </EditForm>
         </MudItem>
         <MudItem xs="12">

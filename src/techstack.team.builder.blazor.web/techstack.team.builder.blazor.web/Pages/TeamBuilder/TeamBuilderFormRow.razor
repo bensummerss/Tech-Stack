@@ -1,5 +1,5 @@
 ﻿@using techstack.team.builder.blazor.web.Models;
-
+<MudGrid>
 <MudItem xs="3">
     <MudSelect Clearable="true" Dense="true" T="Role" Label="Role" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
         <MudSelectItem Value="@(new Role("Software Engineer"))" />
@@ -12,7 +12,7 @@
 </MudItem>
 <MudItem xs="3">
 <MudSelect MultiSelection="true" Clearable="true" Dense="true" T="Skillset" Label="Skillset" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
-    <MudSelectItem Value="@(new Skillset("AngularJS"))" />
+    <MudSelectItem Value="@(new Skillset("AngularJS"))"/>
     <MudSelectItem Value="@(new Skillset("React development"))" />
     <MudSelectItem Value="@(new Skillset("C#"))" />
     <MudSelectItem Value="@(new Skillset("JS"))" />
@@ -47,6 +47,7 @@
     <MudSelectItem T="double" Value="9" />
 </MudSelect>
 </MudItem>
+</MudGrid>
 
 
 @code {
