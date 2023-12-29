@@ -1,5 +1,6 @@
 ﻿@using System.Text.RegularExpressions
 @using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Components.Rendering;
 @using techstack.team.builder.blazor.web.Models;
 
 <MudGrid>
@@ -13,6 +14,17 @@
                                Size="Size.Small"
                                Color="Color.Primary"
                                Icon="@Icons.Material.Filled.Add" />
+                @if (formRow.Count > 0)
+                {
+                    <MudButton OnClick="RemoveAllFormRows"
+                               DisableElevation="true"
+                               Variant="Variant.Filled"
+                               Size="Size.Small"
+                               Color="Color.Error"
+                               Style="margin-left: 8px;">
+                        <MudText>Remove all</MudText>
+                    </MudButton>
+                }
             </div>
         </div>
     </MudItem>
@@ -40,7 +52,7 @@
                 @if (formRef != null)
                     {
                         <MudButton Variant="Variant.Outlined" Color="Color.Primary" DisableElevation="true" OnClick="@( ()=> formRef.Reset())" ButtonType="ButtonType.Reset">
-                            <MudText Typo="Typo.body2">Clear</MudText>
+                            <MudText Typo="Typo.body2">Clear fields</MudText>
                         </MudButton>
                     }
                 </div>
@@ -64,10 +76,17 @@
         });
     }
 
+    private void RemoveAllFormRows()
+    {
+        formRow.Clear();
+        StateHasChanged();
+    }
+
     private void RemoveFormRow(int index)
     {
-        formRow.RemoveAt(index);
         formRef.Reset();
+        formRow.RemoveAt(index);
+        StateHasChanged();
     }
 
     private void OnValidSubmit(EditContext context)

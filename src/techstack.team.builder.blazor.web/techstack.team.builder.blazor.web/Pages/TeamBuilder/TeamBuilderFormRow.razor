@@ -4,25 +4,20 @@
 
 <MudGrid>
     <MudItem xs="3">
-        <MudAutocomplete T="string"
-                         SearchFunc="@Search2"
-                         ResetValueOnEmptyText="@resetValueOnEmptyText"
-                         Label="Role"
-                         Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter"
-                         Clearable="true"
-                         Dense="true"
-                         @bind-Value="@SelectionService.SelectedRole" />
+        <MudSelect Clearable="true" Dense="true" T="string" Label="Skill set" @bind-Value="SelectionService.SelectedRole" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+            @foreach (var role in this.roles)
+            {
+                <MudSelectItem T="string" Value="role">@role</MudSelectItem>
+            }
+        </MudSelect>
     </MudItem>
     <MudItem xs="3">
-        <MudAutocomplete 
-            T="string"
-            SearchFunc="@Search1"
-            ResetValueOnEmptyText="@resetValueOnEmptyText" 
-            Label="Skillset" 
-            Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter"
-            Clearable="true"
-            Dense="true"
-            @bind-Value="@SelectionService.SelectedSkillset" />
+            <MudSelect Clearable="true" Dense="true" T="string" MultiSelection="true" Label="Skill set" @bind-Value="SelectionService.SelectedSkillset" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+                @foreach (var skillset in this.skillsets)
+                {
+                    <MudSelectItem T="string" Value="skillset">@skillset</MudSelectItem>
+                }
+            </MudSelect>
     </MudItem>
     <MudItem xs="3">
         <MudSelect Clearable="true" Dense="true" T="string" Label="Skill level" @bind-Value="SelectionService.SelectedSkillLevel" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
@@ -44,15 +39,6 @@
 
 @code {
     private bool resetValueOnEmptyText;
-
-    private async Task<IEnumerable<string>> Search1(string value)
-    {
-        await Task.Delay(5);
-
-        if (string.IsNullOrEmpty(value))
-            return this.skillsets;
-        return this.skillsets.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
-    }
 
     private async Task<IEnumerable<string>> Search2(string value)
     {
