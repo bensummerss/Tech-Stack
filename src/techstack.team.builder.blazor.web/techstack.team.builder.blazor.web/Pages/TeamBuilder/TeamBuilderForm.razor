@@ -19,7 +19,7 @@
     @if (formRow.Count > 0)
     {
         <MudItem xs="12">
-            <EditForm Model="@form" OnValidSubmit="OnValidSubmit">
+            <MudForm Model="@form" @ref="formRef">
                     @foreach (var (row, index) in formRow.Select((f, i) => (f, i)))
                     {
                         <div class="rendered-row">
@@ -32,7 +32,7 @@
                             @row
                         </div>
                     }
-            </EditForm>
+            </MudForm>
         </MudItem>
         <MudItem xs="12">
             <MudCardActions>
@@ -40,9 +40,12 @@
                     <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary" DisableElevation="true">
                         <MudText Typo="Typo.body2">Create post</MudText>
                     </MudButton>
-                    <MudButton Variant="Variant.Outlined" Color="Color.Primary" DisableElevation="true" ButtonType="ButtonType.Reset">
-                        <MudText Typo="Typo.body2">Clear</MudText>
-                    </MudButton>
+                @if (formRef != null)
+                    {
+                        <MudButton Variant="Variant.Outlined" Color="Color.Primary" DisableElevation="true" OnClick="@( ()=> formRef.Reset())" ButtonType="ButtonType.Reset">
+                            <MudText Typo="Typo.body2">Clear</MudText>
+                        </MudButton>
+                    }
                 </div>
             </MudCardActions>
         </MudItem>
@@ -52,6 +55,7 @@
 @code {
     bool success;
     FormModel form = new FormModel();
+    MudForm formRef;
     private List<RenderFragment> formRow = new List<RenderFragment>();
 
     private void AddFormRow()

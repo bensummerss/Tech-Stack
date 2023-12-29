@@ -7,6 +7,7 @@
                          ResetValueOnEmptyText="@resetValueOnEmptyText"
                          Label="Role"
                          Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter"
+                         Clearable="true"
                          Dense="true" />
     </MudItem>
     <MudItem xs="3">
@@ -16,30 +17,23 @@
             ResetValueOnEmptyText="@resetValueOnEmptyText" 
             Label="Skillset" 
             Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter"
+            Clearable="true"
             Dense="true" />
     </MudItem>
     <MudItem xs="3">
-        <MudSelect Clearable="true" Dense="true" T="SkillLevel" Label="Skill level" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
-            <MudSelectItem Value="@(new SkillLevel("Executive"))" />
-            <MudSelectItem Value="@(new SkillLevel("Lead"))" />
-            <MudSelectItem Value="@(new SkillLevel("Senior"))" />
-            <MudSelectItem Value="@(new SkillLevel("Mid-level"))" />
-            <MudSelectItem Value="@(new SkillLevel("Graduate"))" />
-            <MudSelectItem Value="@(new SkillLevel("Apprentice"))" />
-            <MudSelectItem Value="@(new SkillLevel("Intern"))" />
+        <MudSelect Clearable="true" Dense="true" T="string" Label="Skill level" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+            @foreach (var skillLevel in this.skillLevels)
+            {
+                <MudSelectItem T="string" Value="@skillLevel">@skillLevel</MudSelectItem>
+            }
         </MudSelect>
     </MudItem>
     <MudItem xs="3">
-        <MudSelect Clearable="true" Dense="true" T="double" Label="Quantity" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
-            <MudSelectItem T="double" Value="1" />
-            <MudSelectItem T="double" Value="2" />
-            <MudSelectItem T="double" Value="3" />
-            <MudSelectItem T="double" Value="4" />
-            <MudSelectItem T="double" Value="5" />
-            <MudSelectItem T="double" Value="6" />
-            <MudSelectItem T="double" Value="7" />
-            <MudSelectItem T="double" Value="8" />
-            <MudSelectItem T="double" Value="9" />
+        <MudSelect Clearable="true" Dense="true" T="int" Label="Quantity" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+            @foreach (var quantityRole in this.quantityRoles)
+            {
+                <MudSelectItem T="int" Value="@quantityRole">@quantityRole</MudSelectItem>
+            }
         </MudSelect>
     </MudItem>
 </MudGrid>
@@ -53,8 +47,8 @@
         await Task.Delay(5);
 
         if (string.IsNullOrEmpty(value))
-            return skillsets;
-        return skillsets.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            return this.skillsets;
+        return this.skillsets.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
     private async Task<IEnumerable<string>> Search2(string value)
@@ -62,48 +56,13 @@
         await Task.Delay(5);
 
         if (string.IsNullOrEmpty(value))
-            return roles;
-        return roles.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+            return this.roles;
+        return this.roles.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
-    public class Role
+    protected override void OnInitialized()
     {
-        public Role(string name)
-        {
-            Name = name;
-        }
-
-        public readonly string Name;
-
-        public override bool Equals(object o)
-        {
-            var other = o as Role;
-            return other?.Name == Name;
-        }
-
-        public override int GetHashCode() => Name?.GetHashCode() ?? 0;
-
-        public override string ToString() => Name;
-    }
-
-    public class Skillset
-    {
-        public Skillset(string name)
-        {
-            Name = name;
-        }
-
-        public readonly string Name;
-
-        public override bool Equals(object o)
-        {
-            var other = o as Skillset;
-            return other?.Name == Name;
-        }
-
-        public override int GetHashCode() => Name?.GetHashCode() ?? 0;
-
-        public override string ToString() => Name;
+        base.OnInitialized();
     }
 
     private string[] skillsets =
@@ -123,23 +82,14 @@
         "Database Admin", "Release Manager", "Operations Management", "Solution Architect"
     };
 
-    public class SkillLevel
+    private string[] skillLevels =
     {
-        public SkillLevel(string name)
-        {
-            Name = name;
-        }
+        "Executive", "Director", "Lead", "Senior", "Graduate", "Apprentice", "Intern",
+    };
 
-        public readonly string Name;
+    private int[] quantityRoles =
+    {
+        1, 2, 3, 4, 5, 6,7,8,9
+    };
 
-        public override bool Equals(object o)
-        {
-            var other = o as SkillLevel;
-            return other?.Name == Name;
-        }
-
-        public override int GetHashCode() => Name?.GetHashCode() ?? 0;
-
-        public override string ToString() => Name;
-    }
 }
