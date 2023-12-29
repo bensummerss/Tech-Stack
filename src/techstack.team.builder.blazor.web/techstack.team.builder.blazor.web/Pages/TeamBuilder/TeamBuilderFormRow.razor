@@ -1,4 +1,6 @@
 ﻿@using techstack.team.builder.blazor.web.Models;
+@using techstack.team.builder.blazor.web.Services;
+@inject ISelectionService SelectionService
 
 <MudGrid>
     <MudItem xs="3">
@@ -8,7 +10,8 @@
                          Label="Role"
                          Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter"
                          Clearable="true"
-                         Dense="true" />
+                         Dense="true"
+                         @bind-Value="@SelectionService.SelectedRole" />
     </MudItem>
     <MudItem xs="3">
         <MudAutocomplete 
@@ -18,18 +21,19 @@
             Label="Skillset" 
             Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter"
             Clearable="true"
-            Dense="true" />
+            Dense="true"
+            @bind-Value="@SelectionService.SelectedSkillset" />
     </MudItem>
     <MudItem xs="3">
-        <MudSelect Clearable="true" Dense="true" T="string" Label="Skill level" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+        <MudSelect Clearable="true" Dense="true" T="string" Label="Skill level" @bind-Value="SelectionService.SelectedSkillLevel" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
             @foreach (var skillLevel in this.skillLevels)
             {
-                <MudSelectItem T="string" Value="@skillLevel">@skillLevel</MudSelectItem>
+                <MudSelectItem T="string" Value="skillLevel">@skillLevel</MudSelectItem>
             }
         </MudSelect>
     </MudItem>
     <MudItem xs="3">
-        <MudSelect Clearable="true" Dense="true" T="int" Label="Quantity" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+        <MudSelect Clearable="true" Dense="true" T="int" Label="Quantity" @bind-Value="SelectionService.SelectedQuantity" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
             @foreach (var quantityRole in this.quantityRoles)
             {
                 <MudSelectItem T="int" Value="@quantityRole">@quantityRole</MudSelectItem>
@@ -37,7 +41,6 @@
         </MudSelect>
     </MudItem>
 </MudGrid>
-
 
 @code {
     private bool resetValueOnEmptyText;

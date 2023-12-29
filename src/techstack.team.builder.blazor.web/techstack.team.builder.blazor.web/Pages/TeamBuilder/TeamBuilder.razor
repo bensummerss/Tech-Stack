@@ -1,4 +1,6 @@
 ﻿@page "/"
+@using techstack.team.builder.blazor.web.Services;
+@inject ISelectionService SelectionService;
 
 <PageTitle>Team Builder</PageTitle>
 
@@ -11,4 +13,33 @@
             <TeamBuilderForm />
         </MudPaper>
     </MudItem>
+    <MudItem xs="12">
+        <MudPaper Class="card-ui-container" Elevation="0" Outlined="true">
+            @SelectionService.SelectedRole
+            @SelectionService.SelectedSkillset
+            @SelectionService.SelectedSkillLevel
+            @SelectionService.SelectedQuantity  
+        </MudPaper>
+    </MudItem>
 </MudGrid>
+
+@code {
+    private string selectedRole;
+    private string selectedSkillset;
+    private string selectedSkillLevel;
+    private int selectedQuantity;
+
+    protected override void OnInitialized()
+    {
+        SelectionService.OnSelectionChanged += UpdateSelectedValues;
+    }
+
+    private void UpdateSelectedValues()
+    {
+        selectedRole = SelectionService.SelectedRole;
+        selectedSkillset = SelectionService.SelectedSkillset;
+        selectedSkillLevel = SelectionService.SelectedSkillLevel;
+        selectedQuantity = SelectionService.SelectedQuantity;
+        StateHasChanged();
+    }
+}

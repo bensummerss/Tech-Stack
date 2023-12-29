@@ -37,9 +37,6 @@
         <MudItem xs="12">
             <MudCardActions>
                 <div class="button-row">
-                    <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary" DisableElevation="true">
-                        <MudText Typo="Typo.body2">Create post</MudText>
-                    </MudButton>
                 @if (formRef != null)
                     {
                         <MudButton Variant="Variant.Outlined" Color="Color.Primary" DisableElevation="true" OnClick="@( ()=> formRef.Reset())" ButtonType="ButtonType.Reset">
@@ -70,6 +67,7 @@
     private void RemoveFormRow(int index)
     {
         formRow.RemoveAt(index);
+        formRef.Reset();
     }
 
     private void OnValidSubmit(EditContext context)
