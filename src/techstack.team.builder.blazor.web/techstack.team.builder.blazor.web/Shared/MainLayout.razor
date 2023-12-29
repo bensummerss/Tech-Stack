@@ -1,30 +1,40 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider />
+<MudThemeProvider Theme="_currentTheme"/>
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudAppBar Elevation="0">
+    <MudAppBar Elevation="6" Color="Color.Info">
+        <img src="logo-png.png" style="width: 125px; margin-top: 8px;" />
     </MudAppBar>
-    <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
-        <MudDrawerHeader>
-            <MudText Typo="Typo.h6">techstack.team.builder.blazor.web</MudText>
-        </MudDrawerHeader>
-        <NavMenu />
-    </MudDrawer>
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="pt-8">
             @Body
         </MudContainer>
     </MudMainContent>
 </MudLayout>
 
 @code {
-    bool _drawerOpen = true;
-
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
-    }
+    private readonly MudTheme _currentTheme = new()
+        {
+            Palette = new Palette
+            {
+                Primary = "#5200FF",
+                Secondary = "#B897FF",
+                Info = "#FFFFFF",
+                Success = "#2ECC40",
+                Warning = "#FFC107",
+                Error = "#FF0000",
+                AppbarBackground = "#FFFFFF",
+                TextPrimary = "#222222",
+                TextSecondary = "#373737",
+            }
+        };
 }
+
+
+<style>
+
+        
+</style>
