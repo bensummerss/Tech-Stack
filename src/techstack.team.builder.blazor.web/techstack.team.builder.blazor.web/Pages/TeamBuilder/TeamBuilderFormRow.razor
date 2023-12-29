@@ -1,11 +1,13 @@
-﻿<MudItem xs="3">
-<MudSelect Clearable="true" Dense="true" T="Role" Label="Role" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
-    <MudSelectItem Value="@(new Role("Software Engineer"))" />
-    <MudSelectItem Value="@(new Role("UX Designer"))" />
-    <MudSelectItem Value="@(new Role("QA Engineer"))" />
-    <MudSelectItem Value="@(new Role("Business Analyst"))" />
-    <MudSelectItem Value="@(new Role("Delivery Manager"))" />
-    <MudSelectItem Value="@(new Role("Product Manager"))" />
+﻿@using techstack.team.builder.blazor.web.Models;
+
+<MudItem xs="3">
+    <MudSelect Clearable="true" Dense="true" T="Role" Label="Role" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+        <MudSelectItem Value="@(new Role("Software Engineer"))" />
+        <MudSelectItem Value="@(new Role("UX Designer"))" />
+        <MudSelectItem Value="@(new Role("QA Engineer"))" />
+        <MudSelectItem Value="@(new Role("Business Analyst"))" />
+        <MudSelectItem Value="@(new Role("Delivery Manager"))" />
+        <MudSelectItem Value="@(new Role("Product Manager"))" />
 </MudSelect>
 </MudItem>
 <MudItem xs="3">
@@ -57,19 +59,17 @@
 
         public readonly string Name;
 
-        // Note: this is important so the MudSelect can compare pizzas
         public override bool Equals(object o)
         {
             var other = o as Role;
             return other?.Name == Name;
         }
 
-        // Note: this is important too!
         public override int GetHashCode() => Name?.GetHashCode() ?? 0;
 
-        // Implement this for the Pizza to display correctly in MudSelect
         public override string ToString() => Name;
     }
+
     public class Skillset
     {
         public Skillset(string name)
@@ -79,19 +79,17 @@
 
         public readonly string Name;
 
-        // Note: this is important so the MudSelect can compare pizzas
         public override bool Equals(object o)
         {
             var other = o as Skillset;
             return other?.Name == Name;
         }
 
-        // Note: this is important too!
         public override int GetHashCode() => Name?.GetHashCode() ?? 0;
 
-        // Implement this for the Pizza to display correctly in MudSelect
         public override string ToString() => Name;
     }
+
     public class SkillLevel
     {
         public SkillLevel(string name)
@@ -101,17 +99,14 @@
 
         public readonly string Name;
 
-        // Note: this is important so the MudSelect can compare pizzas
         public override bool Equals(object o)
         {
             var other = o as SkillLevel;
             return other?.Name == Name;
         }
 
-        // Note: this is important too!
         public override int GetHashCode() => Name?.GetHashCode() ?? 0;
 
-        // Implement this for the Pizza to display correctly in MudSelect
         public override string ToString() => Name;
     }
 }
