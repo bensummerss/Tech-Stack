@@ -13,7 +13,7 @@
             <TeamBuilderForm />
         </MudPaper>
     </MudItem>
-        @if (SelectionService.SelectedSkillset != null)
+        @if (SelectionService.SelectedRole != null)
         {
             <MudItem xs="12">
                 <h2>Your post template</h2>
@@ -21,22 +21,31 @@
             <MudItem xs="12">
                 <MudPaper Class="card-ui-container" Elevation="0" Outlined="true">
                     <MudStack Spacing="4">
-                        <h3>@SelectionService.SelectedRole</h3>
-                        <MudStack Spacing="2">
-                            <MudText Typo="Typo.subtitle2">Skills</MudText>
-                            <MudText Typo="Typo.body2">@SelectionService.SelectedSkillset</MudText>
-                        </MudStack>
-                        <MudStack Spacing="2">
-                            <MudText Typo="Typo.subtitle2">Level</MudText>
-                            <MudText Typo="Typo.body2">@SelectionService.SelectedSkillLevel</MudText>
-                        </MudStack>
-                    <MudStack Spacing="2">
-                        <MudText Typo="Typo.subtitle2">How many roles</MudText>
+                        @if (SelectionService.SelectedRole != null)
+                        {
+                            <h3>@SelectionService.SelectedRole</h3>
+                        }
+                        @if (SelectionService.SelectedSkillset.Length > 0)
+                        {
+                            <MudStack Spacing="2">
+                                <MudText Typo="Typo.subtitle2">Skills</MudText>
+                                <MudText Typo="Typo.body2">@SelectionService.SelectedSkillset</MudText>
+                            </MudStack>
+                        }
+                        @if (SelectionService.SelectedSkillLevel != null)
+                        {
+                            <MudStack Spacing="2">
+                                <MudText Typo="Typo.subtitle2">Level</MudText>
+                                <MudText Typo="Typo.body2">@SelectionService.SelectedSkillLevel</MudText>
+                            </MudStack>
+                        }
                         @if (SelectionService.SelectedQuantity > 0)
                         {
-                            @SelectionService.SelectedQuantity
+                            <MudStack Spacing="2">
+                                <MudText Typo="Typo.subtitle2">How many roles</MudText>
+                                @SelectionService.SelectedQuantity
+                            </MudStack>
                         }
-                    </MudStack>
                     </MudStack>
                 </MudPaper>
             </MudItem>
